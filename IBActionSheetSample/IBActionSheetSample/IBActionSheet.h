@@ -85,6 +85,7 @@ typedef NS_ENUM(NSInteger, IBActionSheetButtonCornerType) {
 // standard colors
 - (void)setTitleTextColor:(UIColor *)color;
 - (void)setButtonTextColor:(UIColor *)color;
+- (void)setDestructiveButtonTextColor:(UIColor *)color;
 - (void)setTitleBackgroundColor:(UIColor *)color;
 - (void)setButtonBackgroundColor:(UIColor *)color;
 - (UIColor *)buttonTextColorAtIndex:(NSInteger)index;

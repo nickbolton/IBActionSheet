@@ -589,6 +589,16 @@
     [self setTitleTextColor:color];
 }
 
+- (void)setDestructiveButtonTextColor:(UIColor *)color {
+    
+    if (self.hasDestructiveButton && self.buttons.count > 0) {
+        
+        IBActionSheetButton *button = self.buttons.firstObject;
+        [button setTitleColor:color forState:UIControlStateAll];
+        button.originalTextColor = color;
+    }
+}
+
 - (void)setButtonBackgroundColor:(UIColor *)color {
     
     for (IBActionSheetButton *button in self.buttons) {

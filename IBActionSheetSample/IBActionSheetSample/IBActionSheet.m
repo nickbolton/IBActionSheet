@@ -25,7 +25,13 @@
 
 #pragma mark - IBActionSheet
 
+static IBActionSheet * IBActionSheetLastActionSheet = nil;
+
 @implementation IBActionSheet
+
++ (IBActionSheet *)lastActionSheet {
+    return IBActionSheetLastActionSheet;
+}
 
 #pragma mark IBActionSheet Set up methods
 
@@ -480,6 +486,8 @@
 
 - (void)showInView:(UIView *)theView {
     
+    IBActionSheetLastActionSheet = self;
+    
     [theView addSubview:self];
     [theView insertSubview:self.transparentView belowSubview:self];
     
@@ -505,7 +513,7 @@
                           delay:0.0f
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^() {
-                         self.transparentView.alpha = 0.4f;
+                         self.transparentView.alpha = 1.0f;
                          if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
                              self.center = CGPointMake(x, (height - 20) - CGRectGetHeight(self.frame) / 2.0);
                          } else {
